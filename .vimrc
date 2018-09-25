@@ -1,6 +1,9 @@
 syntax enable
+" existing tabs length - visual only
 set tabstop=4
 set softtabstop=4
+" > length
+set shiftwidth=4
 set expandtab
 set number
 set showcmd
