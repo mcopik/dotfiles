@@ -31,36 +31,15 @@ set colorcolumn=80
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-bufferline'
-Plugin 'tpope/vim-eunuch'
-Plugin 'scrooloose/nerdtree'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'elzr/vim-json'
-" R plugin
-" https://github.com/jalvesaq/Nvim-R/issues/261
-Plugin 'jalvesaq/Nvim-R'
-let g:ycm_semantic_triggers = { 'r' : ['.','::', '$', '@'] }
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1159
-let R_assign = 0
-let g:ycm_log_level = 'debug'
-
-" https://github.com/JamshedVesuna/vim-markdown-preview
-Plugin 'JamshedVesuna/vim-markdown-preview'
-let vim_markdown_preview_github=1
 "let vim_markdown_preview_toggle=3
 
+
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'vim-airline/vim-airline'
@@ -93,8 +72,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 "
 call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 " https://github.com/vim-airline/vim-airline
