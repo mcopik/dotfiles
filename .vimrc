@@ -31,32 +31,6 @@ set colorcolumn=100
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-"call vundle#begin()
-"" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'bling/vim-bufferline'
-"Plugin 'tpope/vim-eunuch'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'editorconfig/editorconfig-vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'elzr/vim-json'
-"" R plugin
-"" https://github.com/jalvesaq/Nvim-R/issues/261
-"Plugin 'jalvesaq/Nvim-R'
-"let g:ycm_semantic_triggers = { 'r' : ['.','::', '$', '@'] }
-"" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1159
-"let R_assign = 0
-"let g:ycm_log_level = 'debug'
-"
-"" https://github.com/JamshedVesuna/vim-markdown-preview
-"Plugin 'JamshedVesuna/vim-markdown-preview'
-"let vim_markdown_preview_github=1
-""let vim_markdown_preview_toggle=3
-"
 call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'vim-airline/vim-airline'
@@ -123,10 +97,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 call plug#end()
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " https://github.com/vim-airline/vim-airline
 let g:airline_theme='badwolf'
