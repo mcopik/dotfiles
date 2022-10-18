@@ -57,6 +57,7 @@ let g:tex_flavor='latex'
 "let g:vimtex_view_method='zathura'
 let g:vimtex_view_method='sioyek'
 let g:vimtex_quickfix_mode=0
+let g:vimtex_complete_enabled=1
 "let g:vimtex_compiler_method='generic'
 "let g:vimtex_compiler_generic = {
 "    \ 'cmd': 'make',
@@ -126,6 +127,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
 nnoremap <leader>gr :YcmCompleter GTReferences<CR>
 command! -nargs=* GTSymbol :YcmCompleter GoToSymbol <args>
+map <leader>fi :YcmCompleter FixIt<CR>
 
 " https://idie.ru/posts/vim-modern-cpp/
 highlight ExtraWhitespace ctermbg=red guibg=red
