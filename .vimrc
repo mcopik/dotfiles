@@ -51,6 +51,7 @@ Plug 'lyuts/vim-rtags'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'airblade/vim-gitgutter'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " latex
 let g:tex_flavor='latex'
