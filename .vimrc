@@ -57,12 +57,23 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 let g:tex_flavor='latex'
 "let g:vimtex_view_method='zathura'
 let g:vimtex_view_method='sioyek'
-let g:vimtex_quickfix_mode=0
+let g:vimtex_quickfix_mode=1
 let g:vimtex_complete_enabled=1
 "let g:vimtex_compiler_method='generic'
 "let g:vimtex_compiler_generic = {
 "    \ 'cmd': 'make',
 "  \}
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
 
 let g:pydocstring_doq_path='/home/mcopik/.local/bin/doq'
 
