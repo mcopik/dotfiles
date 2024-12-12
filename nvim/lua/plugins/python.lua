@@ -10,6 +10,7 @@ return {
       keys = {
         { "<leader>DPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
         { "<leader>DPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
+        { "<leader>db", "<cmd> DapToggleBreakpoint <cr>", desc = "Debug Class" },
       },
       config = function()
         local path = require("mason-registry").get_package("debugpy"):get_install_path()
@@ -17,6 +18,27 @@ return {
       end,
     },
   },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      config = function()
+        local dap = require("dap")
+        local dapui = require("dapui")
+        dapui.setup()
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+          dapui.open()
+        end
+        dap.listeners.after.event_terminated["dapui_config"] = function()
+          dapui.close()
+        end
+        dap.listeners.after.event_exited["dapui_config"] = function()
+          dapui.close()
+        end
+      end,
+    },
+  },
+  { "nvim-neotest/nvim-nio" },
 
   -- Add `python` debugger to mason DAP to auto-install
   -- Not absolutely necessary to declare adapter in `ensure_installed`, since `mason-nvim-dap`
@@ -29,8 +51,8 @@ return {
     "folke/which-key.nvim",
     optional = true,
     opts = {
-      defaults = {
-        ["<leader>DP"] = { name = "+Python" },
+      spec = {
+        { "<leader>DP", name = "+Python" },
       },
     },
   },

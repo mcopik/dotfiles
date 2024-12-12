@@ -19,3 +19,4 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { nowait = true, desc = "Switch source/header file." })
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
